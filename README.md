@@ -5,7 +5,7 @@ Global Solution 2026.2 | Citizen Tech | Data Structures and Algorithms
 ## Integrantes
 
 * Nícolas Andrade Rodrigues - RM 572782
-* [Nome do integrante] - RM [RM]
+* Lucas Caram Bueno - RM 570158
 
 ## 1. Objetivo
 
