@@ -353,3 +353,5 @@ if __name__ == "__main__":
     print(f"\n{passou}/{total} cenários aprovados.")
     print("Evidências gravadas em evidencias/evidencias_testes.md e evidencias/sessao_terminal.txt")
     sys.exit(0 if passou == total else 1)
+
+# Gerado em conjunto com deepseek
