@@ -1,0 +1,256 @@
+=== Citizen Assist AI | Gerenciador de Serviços ===
+
+--- Menu Principal ---
+[1] Cadastrar serviço
+[2] Consultar por identificador
+[3] Listar todos
+[4] Atualizar serviço
+[5] Excluir serviço
+[6] Pesquisar por título ou categoria
+[7] Ordenar lista
+[8] Carregar dados de exemplo
+[0] Sair
+Escolha uma opção: 3
+
+--- Serviços cadastrados ---
+A lista está vazia. Cadastre um serviço ou carregue os dados de exemplo.
+
+--- Menu Principal ---
+[1] Cadastrar serviço
+[2] Consultar por identificador
+[3] Listar todos
+[4] Atualizar serviço
+[5] Excluir serviço
+[6] Pesquisar por título ou categoria
+[7] Ordenar lista
+[8] Carregar dados de exemplo
+[0] Sair
+Escolha uma opção: 8
+
+--- Carregar dados de exemplo ---
+10 serviço(s) de exemplo carregado(s). 0 já existiam e foram ignorado(s).
+
+--- Menu Principal ---
+[1] Cadastrar serviço
+[2] Consultar por identificador
+[3] Listar todos
+[4] Atualizar serviço
+[5] Excluir serviço
+[6] Pesquisar por título ou categoria
+[7] Ordenar lista
+[8] Carregar dados de exemplo
+[0] Sair
+Escolha uma opção: 3
+
+--- Serviços cadastrados ---
+ID    Título                              Categoria                 Canal/Local
+----------------------------------------------------------------------------------------------------
+7     Emissão de Segunda Via de Certi...  Documentos                Cartório de Registro Civil
+3     Inscrição no Cadastro Único         Assistência Social        CRAS do bairro
+12    Matrícula na Rede Municipal de ...  Educação                  Secretaria Municipal de Educação
+1     Agendamento de Consulta na UBS      Saúde                     Unidade Básica de Saúde
+9     Vacinação do Calendário Nacional    Saúde                     UBS e postos de vacinação
+5     Carteira de Trabalho Digital        Documentos                Aplicativo oficial ou posto d...
+11    Orientação Jurídica Gratuita        Atendimento Comunitário   Defensoria Pública
+2     Isenção de Tarifa no Transporte...  Assistência Social        Terminais de integração
+8     Curso Profissionalizante Gratuito   Educação                  Centro de Capacitação Municipal
+4     Mutirão de Atendimento Comunitário  Atendimento Comunitário   Praças e escolas da comunidade
+Total: 10 serviço(s).
+
+--- Menu Principal ---
+[1] Cadastrar serviço
+[2] Consultar por identificador
+[3] Listar todos
+[4] Atualizar serviço
+[5] Excluir serviço
+[6] Pesquisar por título ou categoria
+[7] Ordenar lista
+[8] Carregar dados de exemplo
+[0] Sair
+Escolha uma opção: 2
+
+--- Consultar serviço ---
+Identificador (0 para cancelar): 7
+
+Identificador: 7
+Título: Emissão de Segunda Via de Certidão de Nascimento
+Categoria: Documentos
+Descrição: Solicitação de segunda via da certidão de nascimento.
+Público-alvo: Qualquer cidadão
+Canal/Local de atendimento: Cartório de Registro Civil
+
+--- Menu Principal ---
+[1] Cadastrar serviço
+[2] Consultar por identificador
+[3] Listar todos
+[4] Atualizar serviço
+[5] Excluir serviço
+[6] Pesquisar por título ou categoria
+[7] Ordenar lista
+[8] Carregar dados de exemplo
+[0] Sair
+Escolha uma opção: 6
+
+--- Pesquisar serviços ---
+[1] Por título
+[2] Por categoria
+[0] Voltar
+Pesquisar por: 2
+Termo de pesquisa: saude
+
+2 serviço(s) encontrado(s):
+ID    Título                              Categoria                 Canal/Local
+----------------------------------------------------------------------------------------------------
+1     Agendamento de Consulta na UBS      Saúde                     Unidade Básica de Saúde
+9     Vacinação do Calendário Nacional    Saúde                     UBS e postos de vacinação
+Total: 2 serviço(s).
+
+--- Menu Principal ---
+[1] Cadastrar serviço
+[2] Consultar por identificador
+[3] Listar todos
+[4] Atualizar serviço
+[5] Excluir serviço
+[6] Pesquisar por título ou categoria
+[7] Ordenar lista
+[8] Carregar dados de exemplo
+[0] Sair
+Escolha uma opção: 7
+
+--- Ordenar lista ---
+[1] Por identificador
+[2] Por título
+[3] Por categoria
+[0] Voltar
+Ordenar por: 2
+Lista ordenada por título.
+ID    Título                              Categoria                 Canal/Local
+----------------------------------------------------------------------------------------------------
+1     Agendamento de Consulta na UBS      Saúde                     Unidade Básica de Saúde
+5     Carteira de Trabalho Digital        Documentos                Aplicativo oficial ou posto d...
+8     Curso Profissionalizante Gratuito   Educação                  Centro de Capacitação Municipal
+7     Emissão de Segunda Via de Certi...  Documentos                Cartório de Registro Civil
+3     Inscrição no Cadastro Único         Assistência Social        CRAS do bairro
+2     Isenção de Tarifa no Transporte...  Assistência Social        Terminais de integração
+12    Matrícula na Rede Municipal de ...  Educação                  Secretaria Municipal de Educação
+4     Mutirão de Atendimento Comunitário  Atendimento Comunitário   Praças e escolas da comunidade
+11    Orientação Jurídica Gratuita        Atendimento Comunitário   Defensoria Pública
+9     Vacinação do Calendário Nacional    Saúde                     UBS e postos de vacinação
+Total: 10 serviço(s).
+
+--- Menu Principal ---
+[1] Cadastrar serviço
+[2] Consultar por identificador
+[3] Listar todos
+[4] Atualizar serviço
+[5] Excluir serviço
+[6] Pesquisar por título ou categoria
+[7] Ordenar lista
+[8] Carregar dados de exemplo
+[0] Sair
+Escolha uma opção: 4
+
+--- Atualizar serviço ---
+Identificador (0 para cancelar): 3
+
+Registro atual:
+Identificador: 3
+Título: Inscrição no Cadastro Único
+Categoria: Assistência Social
+Descrição: Cadastro de famílias de baixa renda para acesso a programas sociais.
+Público-alvo: Famílias de baixa renda
+Canal/Local de atendimento: CRAS do bairro
+
+Digite o novo valor ou apenas Enter para manter o atual.
+Título [Inscrição no Cadastro Único]: 
+Categoria [Assistência Social]: 
+Descrição [Cadastro de famílias de baixa renda para acesso a programas sociais.]: Atendimento ampliado para toda a família
+Público-alvo [Famílias de baixa renda]: 
+Canal/Local de atendimento [CRAS do bairro]: 
+Serviço atualizado com sucesso.
+
+--- Menu Principal ---
+[1] Cadastrar serviço
+[2] Consultar por identificador
+[3] Listar todos
+[4] Atualizar serviço
+[5] Excluir serviço
+[6] Pesquisar por título ou categoria
+[7] Ordenar lista
+[8] Carregar dados de exemplo
+[0] Sair
+Escolha uma opção: 2
+
+--- Consultar serviço ---
+Identificador (0 para cancelar): 3
+
+Identificador: 3
+Título: Inscrição no Cadastro Único
+Categoria: Assistência Social
+Descrição: Atendimento ampliado para toda a família
+Público-alvo: Famílias de baixa renda
+Canal/Local de atendimento: CRAS do bairro
+
+--- Menu Principal ---
+[1] Cadastrar serviço
+[2] Consultar por identificador
+[3] Listar todos
+[4] Atualizar serviço
+[5] Excluir serviço
+[6] Pesquisar por título ou categoria
+[7] Ordenar lista
+[8] Carregar dados de exemplo
+[0] Sair
+Escolha uma opção: 5
+
+--- Excluir serviço ---
+Identificador (0 para cancelar): 2
+
+Identificador: 2
+Título: Isenção de Tarifa no Transporte Público
+Categoria: Assistência Social
+Descrição: Cadastro para gratuidade ou desconto na tarifa de ônibus.
+Público-alvo: Idosos e pessoas com deficiência
+Canal/Local de atendimento: Terminais de integração
+
+Confirma a exclusão? (s/n): s
+Serviço removido com sucesso.
+
+--- Menu Principal ---
+[1] Cadastrar serviço
+[2] Consultar por identificador
+[3] Listar todos
+[4] Atualizar serviço
+[5] Excluir serviço
+[6] Pesquisar por título ou categoria
+[7] Ordenar lista
+[8] Carregar dados de exemplo
+[0] Sair
+Escolha uma opção: 3
+
+--- Serviços cadastrados ---
+ID    Título                              Categoria                 Canal/Local
+----------------------------------------------------------------------------------------------------
+1     Agendamento de Consulta na UBS      Saúde                     Unidade Básica de Saúde
+5     Carteira de Trabalho Digital        Documentos                Aplicativo oficial ou posto d...
+8     Curso Profissionalizante Gratuito   Educação                  Centro de Capacitação Municipal
+7     Emissão de Segunda Via de Certi...  Documentos                Cartório de Registro Civil
+3     Inscrição no Cadastro Único         Assistência Social        CRAS do bairro
+12    Matrícula na Rede Municipal de ...  Educação                  Secretaria Municipal de Educação
+4     Mutirão de Atendimento Comunitário  Atendimento Comunitário   Praças e escolas da comunidade
+11    Orientação Jurídica Gratuita        Atendimento Comunitário   Defensoria Pública
+9     Vacinação do Calendário Nacional    Saúde                     UBS e postos de vacinação
+Total: 9 serviço(s).
+
+--- Menu Principal ---
+[1] Cadastrar serviço
+[2] Consultar por identificador
+[3] Listar todos
+[4] Atualizar serviço
+[5] Excluir serviço
+[6] Pesquisar por título ou categoria
+[7] Ordenar lista
+[8] Carregar dados de exemplo
+[0] Sair
+Escolha uma opção: 0
+Encerrando o sistema. Até logo!
