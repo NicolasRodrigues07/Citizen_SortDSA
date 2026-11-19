@@ -4,12 +4,12 @@ Global Solution 2026.2 | Citizen Tech | Data Structures and Algorithms
 
 ## Integrantes
 
-* Nícolas Andrade Rodrigues - RM 572782
-* Lucas Caram Bueno - RM 570158
+- Nícolas Andrade Rodrigues - RM 572782
+- Lucas Caram Bueno - RM 570158
 
 ## 1. Objetivo
 
-Protótipo em Python para cadastrar, consultar, atualizar, excluir, pesquisar e ordenar serviços e orientações do interesse publico geral. Os registros ficam em uma **lista encadeada implementada**, e a busca e a ordenação usam algoritmos escritos no próprio código. O sistema funciona por menu no terminal, não usa IA generativa e os dados de teste são fictícios.
+Protótipo em Python para cadastrar, consultar, atualizar, excluir, pesquisar e ordenar serviços e orientações de interesse público geral. Os dados ficam em uma **lista encadeada própria**, e tanto a busca quanto a ordenação usam algoritmos escritos no projeto. O sistema roda no terminal por menu, não usa IA generativa e usa dados fictícios de teste.
 
 ## 2. Campos dos registros
 
@@ -17,16 +17,16 @@ Protótipo em Python para cadastrar, consultar, atualizar, excluir, pesquisar e 
 |---|---|---|
 | `identificador` | Número único do serviço | Inteiro positivo, até 9 dígitos, sem repetição |
 | `titulo` | Nome do serviço | Obrigatório |
-| `categoria` | Área do serviço (por exemplo, Saúde) | Obrigatório |
+| `categoria` | Área do serviço (ex.: Saúde) | Obrigatório |
 | `descricao` | O que o serviço oferece | Obrigatório |
 | `publico_alvo` | Quem pode usar o serviço | Obrigatório |
-| `canal` | Canal ou local de atendimento | Obrigatorio |
+| `canal` | Canal ou local de atendimento | Obrigatório |
 
-O identificador não pode ser alterado depois do cadastro. Os demais campos podem ser atualizados.
+O `identificador` não muda após o cadastro. Os outros campos podem ser atualizados.
 
 ## 3. Como executar
 
-Requisito: Python 3.8 ou superior. Nenhuma biblioteca externa é necessária.
+Requisito: Python 3.8 ou superior (sem bibliotecas externas).
 
 ```bash
 python main.py
@@ -38,7 +38,7 @@ Para rodar os testes e gerar as evidências:
 python testes.py
 ```
 
-A lista começa vazia. A opção **8** do menu carrega 10 serviços fictícios para facilitar a demonstração.
+A lista começa vazia. A opção **8** carrega 10 serviços fictícios para facilitar o teste.
 
 ### Menu
 
@@ -56,16 +56,16 @@ A lista começa vazia. A opção **8** do menu carrega 10 serviços fictícios p
 
 ### Validações tratadas
 
-* Opção de menu inexistente ou vazia.
-* Identificador com letras, negativo, zero, vazio ou grande demais.
-* Identificador duplicado no cadastro.
-* Campos obrigatórios vazios ou só com espaços (o campo é pedido de novo).
-* Registro não encontrado em consulta, atualização e exclusão.
-* Operações sobre lista vazia (mensagem clara, sem erro).
-* Confirmação de exclusão diferente de `s` ou `n`.
-* Termo de pesquisa vazio.
+- Opção de menu inválida ou vazia.
+- Identificador com letras, negativo, zero, vazio ou maior que o limite.
+- Identificador duplicado no cadastro.
+- Campos obrigatórios vazios ou só com espaços (o programa pede de novo).
+- Registro não encontrado em consulta, atualização e exclusão.
+- Operações em lista vazia (mensagem simples, sem erro).
+- Confirmação de exclusão diferente de `s` ou `n`.
+- Termo de busca vazio.
 
-Nos pedidos de identificador, digitar `0` cancela a operação.
+Ao pedir o identificador, digitar `0` cancela a operação.
 
 ## 4. Organização do código
 
@@ -99,46 +99,46 @@ citizen-assist-dsa/
 
 ## 5. A lista encadeada
 
-É uma lista **simplesmente encadeada**. Cada `No` guarda um `Servico` e uma referência explicita ao próximo nó (`proximo`). A `ListaEncadeada` mantém três atributos: `inicio` (primeiro nó), `fim` (último nó) e `tamanho`. Uma lista vazia tem `inicio` e `fim` iguais a `None`. Nenhuma lista nativa do Python guarda os registros.
+É uma lista **simplesmente encadeada**. Cada `No` guarda um `Servico` e o ponteiro `proximo` para o próximo nó. A `ListaEncadeada` tem três atributos: `inicio`, `fim` e `tamanho`. Quando está vazia, `inicio` e `fim` são `None`. O código não usa lista nativa do Python para armazenar os registros.
 
 **Operações:**
 
-* **Inserção (`inserir_final`)**: cria o nó, liga-o ao `proximo` do último nó e atualiza `fim` e `tamanho`. Se a lista estava vazia, o novo nó vira `inicio` e `fim`.
-* **Percurso (`percorrer`)**: parte de `inicio` e segue `proximo` até `None`, entregando um serviço por vez.
-* **Atualização (`atualizar`)**: localiza o serviço pelo identificador e troca apenas os campos informados.
-* **Remoção (`remover`)**: percorre guardando o nó anterior e religa a lista. Há três casos: remover o primeiro nó (`inicio` avança), o do meio (o anterior passa a apontar para o seguinte) e o último (`fim` volta para o anterior). Se a lista ficar vazia, `inicio` e `fim` viram `None`. O nó removido é desligado da lista e o `tamanho` diminui.
+- **Inserção (`inserir_final`)**: cria o nó, liga ao final e atualiza `fim` e `tamanho`. Se a lista estiver vazia, o novo nó vira `inicio` e `fim`.
+- **Percurso (`percorrer`)**: começa em `inicio` e avança por `proximo` até `None`, retornando um serviço por vez.
+- **Atualização (`atualizar`)**: acha o registro pelo identificador e altera só os campos preenchidos.
+- **Remoção (`remover`)**: percorre guardando o nó anterior e ajusta os ponteiros. Trata três casos: primeiro nó (`inicio` avança), nó do meio (anterior aponta para o seguinte) e último nó (`fim` volta para o anterior). Se esvaziar, `inicio` e `fim` viram `None`. Desliga o nó removido e diminui `tamanho`.
 
-**Duplicidade de identificador:** a verificação é feita no menu (`buscar_por_id` antes de `inserir_final`), assim a inserção em si continua com custo constante.
+**Duplicidade de identificador:** o menu checa com `buscar_por_id` antes de chamar `inserir_final`, mantendo a inserção em si com custo constante.
 
 ## 6. Algoritmos de busca e ordenação
 
 ### Busca sequencial por identificador (`buscar_por_id`)
 
-Percorre a lista do início ao fim comparando o identificador de cada nó. Para ao encontrar. A busca sequencial é adequada porque a lista encadeada não permite acessar uma posição diretamente e os dados não ficam ordenados.
+Percorre do início ao fim comparando o identificador de cada nó e para ao achar. É adequada porque a lista não tem acesso direto por índice e não está sempre ordenada.
 
 ### Busca de trecho em título ou categoria (`buscar_por_texto`)
 
-Percorre todos os nós e, para cada um, procura o termo dentro do campo escolhido com uma busca ingênua de substring escrita em `app/texto.py` (`contem`): alinha o termo em cada posição do texto e compara caractere por caractere. Antes, texto e termo são normalizados (minúsculas, sem acentos e sem espaços repetidos), então `saude` encontra `Saúde`. Os resultados formam uma nova `ListaEncadeada`.
+Percorre todos os nós e procura o termo no campo escolhido usando uma busca ingênua de substring em `app/texto.py` (`contem`), testando posição por posição e caractere por caractere. Antes disso, normaliza texto e termo (sem acentos, minúsculas e sem espaços extras), então `saude` encontra `Saúde`. Os achados vão para uma nova `ListaEncadeada`.
 
 ### Ordenação por Merge Sort em lista encadeada (`ordenar`)
 
-Escolha: o Merge Sort funciona melhor em lista encadeada porque só **religa nós**, sem precisar de acesso por índice nem de cópia dos dados.
+O Merge Sort se adapta bem a listas encadeadas porque apenas **reaponta nós**, sem precisar de índices nem copiar os registros.
 
-1. **Dividir (`_dividir`)**: dois ponteiros percorrem a lista, um avançando um nó e outro dois nós por vez. Quando o rápido chega ao fim, o lento está no meio e a lista é cortada em duas metades.
-2. **Resolver**: cada metade é ordenada recursivamente. Lista vazia ou com um nó já está ordenada (caso base).
-3. **Mesclar (`_mesclar`)**: compara os primeiros nós das duas metades ordenadas e religa sempre o menor ao fim da lista resultante, até acabar uma das metades. O restante da outra é anexado de uma vez.
-4. Ao final, o `fim` da lista é recalculado com um percurso.
+1. **Dividir (`_dividir`)**: usa dois ponteiros (um anda 1 nó e o outro 2 nós); quando o rápido chega ao fim, o lento está no meio e separa as duas metades.
+2. **Resolver**: ordena cada metade recursivamente; 0 ou 1 nó já está ordenado.
+3. **Mesclar (`_mesclar`)**: compara a cabeça das duas metades ordenadas e liga sempre o menor ao resultado até uma acabar; depois liga o resto da outra metade.
+4. Ao terminar, refaz um percurso para atualizar `fim`.
 
-Critérios disponíveis: identificador (número), título e categoria (texto normalizado, ignorando acentos e maiúsculas). A ordenação é estável (empates mantêm a ordem anterior) e **crescente**.
+Ordena de forma **crescente** e **estável** (mantém a ordem em caso de empate) por identificador (numérico), título ou categoria (texto normalizado).
 
 ## 7. Análise Big-O
 
 **Hipóteses:**
 
-* `n` é a quantidade de nós da lista.
-* Comparar identificadores custa O(1).
-* Os textos (título e categoria) têm tamanho limitado e pequeno. Por isso o custo de normalizar e comparar um texto é tratado como constante. Sem essa hipótese, a comparação de texto custa O(L) e a busca de trecho custa O(L·p) por nó, em que L é o tamanho do campo e p o tamanho do termo.
-* "Melhor caso" é quando o registro procurado é o primeiro nó. o "Pior caso" é quando ele é o último ou não existe.
+- `n` é a quantidade de nós da lista.
+- Comparar identificadores custa O(1).
+- Os textos (título e categoria) têm tamanho limitado e pequeno. Por isso o custo de normalizar e comparar um texto é tratado como constante. Sem essa hipótese, a comparação de texto custa O(L) e a busca de trecho custa O(L·p) por nó, em que L é o tamanho do campo e p o tamanho do termo.
+- "Melhor caso" é quando o registro procurado é o primeiro nó. o "Pior caso" é quando ele é o último ou não existe.
 
 | Operação | Método | Melhor caso | Pior caso | Justificativa |
 |---|---|---|---|---|
@@ -155,29 +155,29 @@ Critérios disponíveis: identificador (número), título e categoria (texto nor
 
 ## 8. Testes e evidências
 
-O arquivo `testes.py` executa **45 cenários** com entradas simuladas no terminal e confere o resultado de cada um. Depois de cada cenário ele também verifica a integridade da lista (número de nós igual ao `tamanho` e `fim` apontando para o último nó).
+`testes.py` roda **45 cenários** com entradas simuladas e verifica o resultado de cada um. Após cada cenário, checa também a integridade da lista (`tamanho` igual ao total de nós e `fim` no último nó).
 
 Cenários cobertos:
 
-* Operações sobre **lista vazia** (listar, consultar, atualizar, excluir, pesquisar e ordenar).
-* Cadastro válido, identificador duplicado, identificador inválido, campo obrigatório vazio e cancelamento.
-* Consulta de registro existente e inexistente; listagem com vários registros.
-* Atualização completa, parcial, sem alterações e de registro inexistente.
-* Pesquisa por título e categoria (com e sem acento), sem resultado, termo vazio e opção inválida.
-* Ordenação por identificador, título e categoria, com 5 e com 10 registros, e com um único registro.
-* Exclusão do início, do meio e do fim, cancelada, com confirmação inválida, de registro inexistente e até esvaziar a lista.
-* Inserção depois de remover o último nó.
-* Opções inexistentes no menu principal e uma sessão completa de ponta a ponta.
+- Operações em **lista vazia** (listar, consultar, atualizar, excluir, pesquisar e ordenar).
+- Cadastro válido, identificador duplicado, identificador inválido, campo obrigatório vazio e cancelamento.
+- Consulta de item existente ou não; listagem com vários itens.
+- Atualização total, parcial, sem mudanças e de item inexistente.
+- Busca por título e categoria (com e sem acento), sem resultado, termo vazio e opção inválida.
+- Ordenação por identificador, título e categoria, com 5, 10 ou 1 registro.
+- Exclusão do início, meio e fim, cancelada, com confirmação inválida, de item inexistente e até esvaziar a lista.
+- Inserção após remover o último nó.
+- Opções inválidas no menu principal e fluxo completo do início ao fim.
 
-Resultados em `evidencias/`:
+Arquivos gerados em `evidencias/`:
 
-* `evidencias_testes.md`: para cada cenário, a **entrada**, o **resultado esperado** e o **resultado observado** (saída real do terminal).
-* `sessao_terminal.txt`: sessão completa pelo menu.
+- `evidencias_testes.md`: entrada, resultado esperado e resultado observado em cada cenário.
+- `sessao_terminal.txt`: execução completa pelo menu.
 
-Para gerar de novo, rode `python testes.py`.
+Para gerar novamente, execute `python testes.py`.
 
 ## 9. Limitações
 
-* Os dados ficam só em memória e se perdem ao fechar o programa.
-* A ordenação é sempre crescente.
-* A busca de trecho diferencia apenas letras e números. Erros de digitação não são corrigidos.
+- Os dados ficam só na memória e somem ao fechar o programa.
+- A ordenação é sempre crescente.
+- A busca só considera letras e números normalizados; não corrige erros de digitação.
